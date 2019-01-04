@@ -1,0 +1,40 @@
+// 样式过渡
+
+// 淡入淡出
+.fade-enter-active, .fade-leave-active{
+  transition: opacity .4s;
+  opacity: 1;
+}
+// 进入、离开
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+
+// 微动画
+.tiny-enter-active, .tiny-leave-active{
+  transition: opacity .4s, transform .4s;
+  opacity: 1;
+  transform: none;
+}
+
+// 微动画
+.tiny-enter, .tiny-leave-to {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+// 滑动
+.slide-enter-active, .slide-leave-active{
+  transition: height .4s;
+  overflow: hidden;  
+
+}
+// 滑动
+.slide-enter, .slide-leave-to {
+  height: 0 !important;
+}
+
+.el-button--mini.is-round {
+  padding: 7px;
+
+}

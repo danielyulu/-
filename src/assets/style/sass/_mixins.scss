@@ -1,0 +1,205 @@
+@import "~@/assets/style/sass/_variable.scss";
+
+@import "~@/assets/style/sass/_variable.scss";
+
+//一些公用占位样式
+//---------------------
+%borderRadius {
+  -webkit-border-radius: $border-radius;
+  -moz-border-radius: $border-radius;
+  border-radius: $border-radius;
+}
+%box-shadow {
+  -webkit-box-shadow: -1px 1px 10px 0px #ccc;
+  -moz-box-shadow: -1px 1px 10px 0px #ccc;
+  box-shadow: -1px 1px 10px 0px #ccc;
+};
+
+%absoluteCenter {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+}
+
+@mixin clearfix() {
+  &:before,
+  &:after {
+    content: " ";
+    display: table; 
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+// 设置大小
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+// 三角形函数
+@mixin triangle($dir, $size: 10px 10px, $color: currentColor) {
+  content:"";
+  display: inline-block;
+  border-width: 0;
+  border-color: transparent;
+  border-style: solid;
+
+  @if $dir == top {
+    border-bottom-color: $color;
+    border-bottom-width: nth($size, 2);
+    border-left-width: nth($size, 1) / 2;
+    border-right-width: nth($size, 1) / 2;
+  }
+  @else if $dir == bottom {
+    border-top-color: $color;
+    border-top-width: nth($size, 2);
+    border-left-width: nth($size, 1) / 2;
+    border-right-width: nth($size, 1) / 2;
+  }
+  @else if $dir == left {
+    border-right-color: $color;
+    border-right-width: nth($size, 1);
+    border-top-width: nth($size, 2) / 2;
+    border-bottom-width: nth($size, 2) / 2;
+  }
+  @else if $dir == right {
+    border-left-color: $color;
+    border-left-width: nth($size, 1);
+    border-top-width: nth($size, 2) / 2;
+    border-bottom-width: nth($size, 2) / 2;
+  }
+}
+//带背景实心三角箭头
+@mixin solid-arrow($direction:right,$width:4px,$color:$border-color){
+    display:block;
+    position:absolute;
+    content:'';
+    border-width:$width;
+    border-style:solid;
+    position:absolute;
+    left:0;
+    top:0;
+
+    @if $direction == top{
+      border-color:transparent transparent  $color transparent;
+    }
+    @else if $direction == bottom{
+      border-color:$color transparent transparent transparent;
+    }
+    @else if $direction == left{
+      border-color:transparent $color transparent transparent;
+    }
+    @else if $direction == right{
+      border-color:transparent transparent transparent $color;
+    }
+
+}
+//空心三角箭头
+@mixin arrow($direction:right,$width:10px,$color:$border-color,$border-with:2px){
+    content: '';
+    display:block;
+    width:$width;
+    height:$width;
+    position:absolute;
+    left:0;
+    top:0;
+
+    @if $direction == top{
+      border-top: $border-with solid $color;
+      border-left: $border-with solid $color;
+    }
+    @else if $direction == bottom{
+      border-bottom: $border-with solid $color;
+      border-right: $border-with solid $color;
+    }
+    @else if $direction == left{
+      border-bottom: $border-with solid $color;
+      border-left: $border-with solid $color;
+    }
+    @else if $direction == right{
+      border-top:$border-with solid $color;
+      border-right: $border-with solid $color;
+    }
+}
+
+@mixin option ($width, $height, $color:$color-primary,$display: block) {
+  display: $display;
+  width: $width;
+  height: $height;
+  line-height: $height;
+  font-size: 14px;
+  text-align: center;
+  color: $color;
+  border: 1px solid $color;
+  @extend %borderRadius;
+  cursor: pointer;
+}
+
+//超出隐藏
+@mixin text-overflow() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+//多行溢出隐藏
+@mixin multi-text-overflow($index:3) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $index;
+  overflow: hidden;
+}
+
+//盒模型上下左右居中对齐
+@mixin flexCenter(){
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+//transform 
+@mixin transform($transforms){
+  -webkit-transform: $transforms;
+  -moz-transform: $transforms;
+  -ms-transform: $transforms;
+  -o-transform: $transforms;
+  transform: $transforms;
+}
+//rotate
+@mixin rotate($deg){
+  @include transform(rotate(#{$deg}deg));
+}
+
+//带边三框角形
+@mixin border-arrow($direction:top,$width:18px,$bgcolor:#fff,$border-color:$gray-d9){
+    width:$width;
+    height:$width;
+    box-sizing: border-box;
+    overflow: hidden;
+    border-width: 1px 1px 0 0;
+    border-color: $border-color;
+    border-style: solid;
+    @if $direction == top{
+      background: linear-gradient(225deg,$bgcolor 50%, transparent 50%);
+      @include rotate(-45);
+    }
+    @else if $direction == bottom{
+      background: linear-gradient(225deg,$bgcolor 50%, transparent 50%);
+      @include rotate(135);
+    }
+    @else if $direction == left{
+      background: linear-gradient(225deg,$bgcolor 50%, transparent 50%);
+      @include rotate(-135);
+    }
+    @else if $direction == right{
+      background: linear-gradient(225deg,$bgcolor 50%, transparent 50%);
+      @include rotate(45);
+    }
+}
+

@@ -1,0 +1,193 @@
+//重置elmentUI样式
+.el-select > .el-input {
+    width: 300px;
+  }
+.el-breadcrumb__inner a:hover,
+.el-breadcrumb__inner:hover {
+  color: #1da79e !important;
+  cursor: pointer;
+}
+.el-tabs {
+  margin: 0;
+  margin: 10px 0;
+}
+.el-tabs__header {
+  margin: 0;
+}
+  
+.el-input__prefix {
+  top: -4px;
+}
+
+.content-container {
+  .el-tabsPanel {
+    margin-top: 20px;
+  }
+  .searchListForm {
+    .el-form-item {
+      margin-right: 100px;
+    }
+    .el-form-item {
+      margin-bottom: 8px;
+    }
+    .el-input {
+      width: 400px;
+    }
+    .el-select {
+      input {
+        border: none;
+        background: none;
+        color: #000;
+      }
+      .el-input__suffix {
+        display: none;
+      }
+    }
+  }
+  #sididerBar {
+    position: absolute;
+    padding-left: 10px;
+    top: 60px;
+    width: 260px;
+    overflow: auto;
+    height: 90%;
+    border-right: 1px solid #e4e7ed;
+    .seachTreeForm {
+      margin: 8px 10px 15px;
+      .el-input {
+        width: 220px;
+      }
+    }
+  }
+  #sididerBar::-webkit-scrollbar {
+    display: none;
+  }
+  .addlistTree {
+    position: absolute;
+    right: 15px;
+    top: 14px;
+  }
+  .topTab {
+    position: absolute;
+    width: 100%;
+    background: #fff;
+  }
+  .toolbar {
+    display: -webkit-box;
+    justify-content: space-between;
+  }
+}
+  
+#addTypeDialog {
+  margin-top: 20vh;
+  .el-input {
+    width: 200px;
+  }
+}
+  
+  .el-input__suffix {
+    top: 0 !important;
+  }
+  .addButton {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    text-align: center;
+    line-height: 28px;
+    border-radius: 50%;
+    background: #1da79e;
+    cursor: pointer;
+    color: #fff;
+  }
+  
+  .addButton:hover {
+    background: rgb(74, 185, 177);
+    border-color: rgb(74, 185, 177);
+    color: #fff;
+  }
+  .el-tabs--card > .el-tabs__header .el-tabs__nav {
+    margin-left: 20px;
+  }
+  .el-input {
+    margin-right: 20px;
+  }
+  .el-tabs__item {
+    padding: 0 28px;
+  }
+  .searchForm {
+    .el-input {
+      width: 260px;
+    }
+    .el-select {
+      .el-input {
+        width: 260px;
+      }
+    }
+  }
+  .useDeptInput {
+    .el-input {
+      width: 260px;
+    }
+  }
+  #contacts {
+    .el-input {
+      width: 260px;
+    }
+  }
+  .el-picker-panel__body {
+    .el-input {
+      width: 146px;
+      margin-right: 0px;
+    }
+  }
+  .el-input__suffix {
+    top: -4px;
+  }
+  #reactListDiaLog {
+    .el-input__suffix {
+      top: 0px;
+    }
+    .nameClass {
+      .el-input {
+        width: 90px;
+      }
+      .el-form-item__label:before {
+        content: "*";
+        color: #f56c6c;
+        margin-right: 4px;
+      }
+    }
+  }
+  .el-button--small {
+    padding: 7px 10px;
+  }
+  #UEeditorDiv {
+    padding-left: 30px;
+    .edui-editor-toolbarbox {
+      display: none;
+    }
+    .edui-default {
+      .edui-editor {
+        border: none !important;
+      }
+    }
+    .edui-default {
+      .edui-editor-bottomContainer {
+        display: none;
+      }
+    }
+  }
+  .edui-default .edui-editor{
+    border: none !important;
+  }
+  .el-dialog {
+    margin-top: 6vh !important;
+  }
+  
+  @media screen and (max-width: 1450px) {
+    .searchForm {
+      .el-col-12 {
+        width: 100%;
+      }
+    }
+  }

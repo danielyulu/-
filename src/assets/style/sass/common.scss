@@ -1,0 +1,575 @@
+@import "~@/assets/style/sass/_variable.scss";
+@import "~@/assets/style/sass/_mixins.scss";
+
+* {
+  box-sizing: border-box;
+  margin:0;
+  padding:0;
+  font-style: normal;
+}
+
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+
+body,html{
+	color:#000;
+	font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-size:$font-size-base;  
+  width: 100%;
+  height: 100%;
+}
+/* 设置滚动条的样式 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+/* 滚动条滑块 */
+::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 3px;
+}
+ul,ol {
+  list-style: none;
+}
+a{
+  text-decoration: none;
+  color: $text-main-color;
+}
+/*  去掉图片低测默认的3像素空白缝隙*/
+table {
+  /*合并外边线*/
+  th{
+    font-weight: normal;
+  }
+}
+
+
+.clearfix {
+  &:before,
+  &:after {
+    content: " ";
+    display: table; 
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+.fleft {
+  float:left;
+}
+
+.fright {
+  float:right;
+}
+
+.loading{
+ 	position: absolute;
+    left: calc(50% - 80px);
+    top: calc(50% - 80px);
+    width: 160px;
+    height: 160px;
+    border-radius: 16px;
+    background-color:rgba(0,0,0,.6);
+    background-repeat: no-repeat;
+}
+
+
+/**
+   不能通过主题定义的element UI公共样式 start
+**/
+.el-date-editor.el-input, .el-date-editor.el-input__inner{
+  font-size:12px;  
+  height: 28px;  
+}
+.el-input{
+   font-size:12px;  
+   width:260px;
+   height: 30px; 
+   .el-input__inner{
+     height: 30px;
+   }
+}
+.el-textarea{
+  font-size:12px;  
+  width:100%;
+}
+.el-select>.el-input {
+  font-size:12px;  
+   width:160px; 
+}
+.el-input__inner{
+    padding:0 10px;
+}
+.el-form-item{
+  margin-bottom: 10px;
+  display: inline-block;
+}
+.el-button{
+  &+ .el-button{
+    margin-left: 8px;
+  }
+}
+.el-form-item__content,.el-form-item__label{
+  line-height:$gl-input-height;
+}
+.el-dialog, .edit-form {
+  .el-form-item{
+    margin-bottom: 18px;
+    display: inline-block;
+  }
+}
+
+//时间选择器
+.el-date-editor{
+  &.el-range-editor{
+    width:260px;
+  }
+  .el-range-input{
+    width: 32%;
+  }
+  .el-range__icon,.el-range__close-icon{
+    line-height:normal;
+  }
+  .el-range-separator{
+      line-height:normal;
+      width:15%;
+  }
+}
+//表格
+  .el-table{
+    th{
+      font-weight: normal;
+    }
+    td,td{
+      padding:8px 0;
+    }
+  }
+
+/*short 下拉框*/
+.el-popper{
+    &.el-select-dropdown-short{
+      .popper__arrow{
+        left:70px !important;
+      }
+    }    
+
+}
+
+.el-col{
+  height: 30px;
+  margin: 5px 0;
+  margin-bottom: 18px;
+}
+
+.el-tabs {
+  margin: 20px 0;
+}
+
+.el-dialog {
+  .el-input{
+    font-size:12px;  
+    width:160px; 
+  }
+  .el-textarea{
+    font-size:12px;  
+    width:100%; 
+  }
+}
+
+/**
+   不能通过主题定义的element UI公共样式  end
+**/
+
+
+
+
+
+/*
+  自定义  element UI 样式 start
+*/
+
+/*
+  自定义  element UI 样式  end
+*/
+
+
+//公共样式
+.content-container{
+  width:100%;
+  height: 100%;
+}
+.content-footer {
+  line-height:60px;
+  border-top:1px solid $border-color;
+  span{
+    margin: 0 10px;
+  }
+  .el-button{
+    font-size: 14px;
+    width: 75px;
+    height: 22px;
+    margin-left: 10px;
+  }
+}
+  .el-button--primary{
+    padding: 7px 10px;
+    border-radius: 6px;
+  }
+
+//下拉框+搜索框搜索
+.select-query-box{
+  display: inline-block;
+  .select-box,.keywords-box{
+    float:left;
+  }
+  .el-select{ 
+    .el-input{
+      width:70px;  
+    }   
+  }
+  .select-box{
+    .el-input__inner{
+      background-color: $color-primary;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      border-color: $color-primary;
+      color: #fff;
+    }
+    .el-input .el-select__caret{
+      color:#fff;
+    }       
+  }  
+  .keywords-box{
+    .el-input{
+      width:310px;  
+    } 
+    .el-input__inner{
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      border-left:none;
+    }
+    .el-input__icon{
+      font-size: 16px;
+    }   
+  }
+}
+
+
+
+/*
+  标题+内容框
+
+*/
+.boxItem {
+  border: 1px solid $border-color;
+  margin-top:15px;
+  .title {
+    padding:10px 15px;
+    background-color: $button-gray;
+    @include clearfix;
+    display: flex;
+    justify-content:flex-start;
+    li {
+      width: 50%;
+      @include text-overflow();
+      text-align:left;
+      &:first-child {
+        padding-left: 0;
+      }
+      &:last-child { 
+        text-align:right;
+      }
+    }
+  }
+  .boxItem-inner {
+    margin: 15px;
+    @include clearfix;
+    border: 1px solid $border-color;
+    border-bottom: none;
+  }
+}
+
+
+/*条件选择*/ 
+.condition-box{
+  @include clearfix;
+  padding:10px 0 0;
+  border-top:1px dashed $border-color;
+  border-bottom: 1px solid $border-color;
+}
+
+
+/*分页*/
+.pagination-box{
+  @include clearfix;
+  // border-top:1px solid $border-color;
+  padding:10px 0;
+  .el-pagination{
+    text-align:right;
+  }
+}
+
+
+/* 自定义表格 */
+
+
+.common-table{
+  border-collapse: collapse;
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+  thead{
+    tr{
+      background-color: #eee;
+    }
+    th{
+      padding:8px 0;
+      background-color: #eee;
+      border-left: 1px solid $border-color;
+    }       
+  }
+  tbody {
+    padding: 0 20px;
+    tr{
+      border-bottom: 1px solid $border-color;
+      td{
+        padding:8px 0;           
+      }
+    }           
+  }
+  &.small{
+    font-size: 12px;
+  }
+}
+
+.el-picker-panel__icon-btn {
+  padding: 0 8px;
+}
+
+.form-padding {
+  padding:15px;
+}
+
+.input-remarks {
+  width: 100%;
+  .el-form-item__content {
+    width: 100%;
+    .el-input {
+      width: 82%;
+    }
+    .el-textarea {
+      width: 82%;
+    }
+  }
+}
+
+//修改所有对话框的样式
+.el-dialog{
+  .el-dialog__header {
+    border-bottom: 1px $border-color double;
+  }
+  .el-dialog__body {
+    padding: 12px 20px;
+  }
+  .el-dialog__footer {
+    border-top: 1px $border-color double;
+    padding: 8px;
+  }
+}
+
+
+//只读输入框样式(去掉了线,修改了字体大小和样式)
+.detail-input-readonly {
+  .el-input__inner,.el-textarea__inner {
+    border-width: 0;
+    font-size: 14px;
+    color: #000000;
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    resize: none;//去掉文本域右下角的样式
+  }
+}
+.el-textarea__inner {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+}
+
+//详情标题
+.detail-title {
+  background: $gray-f5;
+  // color: #3f8af9;
+  padding: 4px 16px;
+  margin-bottom: 12px;
+  // line-height: 28px;
+  span {
+    // color: black;
+    margin-right: 25px;
+    
+    em {
+      color: $color-primary;
+      font-weight: bold;
+      font-size: 15px;
+
+    }
+  }
+}
+
+
+//详情信息的外边距
+.detail-info-margin {
+  margin: 15px 10px;
+}
+
+//详情表格的边距
+.inner-talbe {
+  width: 100%;
+  margin: 5px 12px;
+}
+
+.cell {
+  .cell,.el-tooltip {
+    padding-left:0px;
+  }
+}
+
+.cc-button {
+  cursor: pointer;
+}
+
+.el-popover {
+  word-wrap: break-word;
+}
+
+//去掉全局加载时的白色背景
+.el-loading-not-bg-color {
+  background-color: rgba(255, 255, 255, 0);
+}
+
+//修改表格排序的上下箭头大小和定位
+.is-sortable {
+  .caret-wrapper {
+    height: 22px;
+    .ascending {
+      top: -1px;
+    }
+    .descending {
+      bottom: 1px;
+    }
+  }
+}
+
+//修改过长备注的鼠标手势
+.el-tooltip {
+  cursor: pointer;
+}
+
+//白色字体,无背景,使用时需要自己增加背景颜色.
+.prominent-block {
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  vertical-align: middle;
+  margin: 5px 0 5px 10px;
+  padding: 0 10px;
+  color: #ffffff;
+  float: left;
+}
+.bg-orange{
+  background-color:$color-orange;
+}
+.bg-blue{
+  background-color: $color-primary;
+}
+
+//给form增加线条
+.form-border {
+  border: 1px solid $border-color;
+}
+
+.el-table__header {
+  thead {
+    th {
+      border-right: 1px solid #e1e1e1;
+      padding: 8px 0;
+    }
+  }
+}
+
+.el-popover {
+  .popover-content {
+    overflow-x: auto;
+    max-height: 500px;
+    // min-height: 500px;
+    // border: 1px solid #ddd;
+    line-height: 1.5;
+    // white-space: pre-line;
+    // font-size: 14px;
+    // padding: 8px 20px;
+  }
+}
+
+
+
+.prompt-text {
+  color: $color-primary;
+  float: left;
+  // padding: 5px 30px;
+}
+.save {
+  margin-left: 45px;
+  float: right;
+}
+.alert-form-padding {
+  padding: 5px 15px;
+}
+
+//给所有多选下拉框限制长度
+.el-select {
+  .el-input {
+    .el-input__inner {
+      max-height: 30px;
+    }
+  }
+}
+
+//给饿了么el-table组件所有字段增加内容过长自动显示省略号
+.el-table {
+  .el-table__body {
+    .el-table__row {
+      .cell {
+        white-space:nowrap;
+        overflow:hidden;
+        text-overflow:ellipsis;
+      }
+    }
+  }
+}
+.v-modal{
+  z-index: 1000 !important;
+}
+.el-dialog__wrapper {
+  z-index: 1001 !important;
+}
+
+//知识库管理el-input宽度覆盖重置
+.el-pagination__jump {
+  .el-input {
+    width: 50px;
+  }
+}
+
+//隐藏table表格边框
+.el-table--border{
+  border: none;
+  td{
+    border-right: none;
+  }
+}
+
+//去掉表格右边多出来的一条线
+.el-table--border::after, .el-table--group::after, .el-table::before {
+  background-color: #ffffff;
+}
